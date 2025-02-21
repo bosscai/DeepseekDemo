@@ -8,15 +8,12 @@
     <name>Demo</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor email="support@yourcompany.com" url="https://www.yourcompany.com">YourCompany</vendor>
+    <vendor email="chengxuan_cai@163.com" url="https://www.yourcompany.com">FAW</vendor>
 
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
-    <description><![CDATA[
-    Enter short description for your plugin here.<br>
-    <em>most HTML tags may be used</em>
-  ]]></description>
+    <description>这是蔡承轩写的一个demo，目前还没有想好它叫什么名字，这个内容还需要超过40个字符串</description>
 
     <!-- Product and plugin compatibility requirements.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
@@ -27,4 +24,14 @@
     <extensions defaultExtensionNs="com.intellij">
 
     </extensions>
+    <actions>
+        <action id="rightMenuPopTextId" class="org.example.demo.rightMenuPopText" text="获取右键选中文本"
+                description="这是一个由蔡承轩书写的选中文本菜单实例">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+        <action id="mainMenuPopTextId" class="org.example.demo.mainMenuPopText" text="点我试试"
+                description="主菜单点击弹出确认文本框">
+            <add-to-group group-id="MainMenu" anchor="last"/>
+        </action>
+    </actions>
 </idea-plugin>
