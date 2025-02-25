@@ -22,8 +22,14 @@
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-
     </extensions>
+
+    <application-components>
+        <component>
+            <interface-class>org.example.demo.ProjectInit</interface-class>
+            <implementation-class>org.example.demo.ProjectInitImpl</implementation-class>
+        </component>
+    </application-components>
     <actions>
         <action id="rightMenuPopTextId" class="org.example.demo.rightMenuPopText" text="获取右键选中文本"
                 description="这是一个由蔡承轩书写的选中文本菜单实例">
@@ -32,6 +38,10 @@
         <action id="mainMenuPopTextId" class="org.example.demo.mainMenuPopText" text="点我试试"
                 description="主菜单点击弹出确认文本框">
             <add-to-group group-id="MainMenu" anchor="last"/>
+        </action>
+        <action id="fileSelectTextId" class="org.example.demo.FileSelected" text="文件选中"
+                description="文件选中的操作">
+            <add-to-group group-id="FileChooserToolbar" anchor="first"/>
         </action>
     </actions>
 </idea-plugin>

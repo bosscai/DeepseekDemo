@@ -39,6 +39,11 @@ repositories {
         maven("https://maven.aliyun.com/nexus/content/groups/public/")
         maven("https://maven.aliyun.com/nexus/content/repositories/central/")
     }
+    dependencies {
+        implementation("com.squareup.okhttp3:okhttp:3.14.9")
+        // https://mvnrepository.com/artifact/com.alibaba.fastjson2/fastjson2
+        implementation("com.alibaba.fastjson2:fastjson2:2.0.20")
+    }
 
 // Configure Gradle IntelliJ Plugin
 // Read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
