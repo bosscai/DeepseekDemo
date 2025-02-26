@@ -34,7 +34,7 @@ public class OKHttpInstance {
     }
 
     // 发送 POST 请求
-    public void post(String url, Map<String, String> params, final RequestCallback callback) {
+    public void post(String url, Map<String, Object> params, final RequestCallback callback) {
         String json = JSONObject.toJSONString(params);
         MediaType JSON = MediaType.get("application/json; charset=utf-8");
         RequestBody body = RequestBody.create(JSON, json);
@@ -79,8 +79,24 @@ public class OKHttpInstance {
             public void onResponse(Call call, Response response) throws IOException {
                 if (callback != null) {
                     if (response.isSuccessful()) {
-                        String result = response.body().string();
-                        callback.onSuccess(result);
+                        try(ResponseBody body = response.body()) {
+                            if (body != null) {
+                                // 获取响应的源，用于流式读取
+                                okio.BufferedSource source = body.source();
+                                String line;
+                                while((line = source.readUtf8Line()) != null) {
+                                    try {
+                                        callback.onSuccess(line);
+                                        JSONObject jsonObject = JSONObject.parseObject(line);
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }
+                        }
+
+//                        String result = response.body().string();
+//                        callback.onSuccess(result);
                     } else {
                         callback.onError("Request failed with code: " + response.code());
                     }

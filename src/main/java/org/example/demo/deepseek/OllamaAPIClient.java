@@ -21,9 +21,10 @@ public class OllamaAPIClient {
             log.error("llm is null");
             return;
         }
-        HashMap<String, String> map = new HashMap<>();
+        HashMap<String, Object> map = new HashMap<>();
         map.put("model", llm.getName());
         map.put("prompt", mPrompt);
+        map.put("stream", true);
         OKHttpInstance.getInstance().post(Configuration.API_URL, map, callback);
     }
 }
