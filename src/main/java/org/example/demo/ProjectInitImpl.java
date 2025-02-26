@@ -1,8 +1,14 @@
 package org.example.demo;
 
+import com.alibaba.fastjson2.JSONObject;
+import org.example.demo.deepseek.Configuration;
+import org.example.demo.deepseek.LLM;
+import org.example.demo.deepseek.OllamaAPIClient;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import static org.example.demo.deepseek.Configuration.API_URL;
 
 public class ProjectInitImpl implements ProjectInit {
 
@@ -15,14 +21,12 @@ public class ProjectInitImpl implements ProjectInit {
 
     @Override
     public void initComponent() {
-        System.out.println("initComponent");
-        log.info(TAG, "initComponent");
+        log.info("initComponent");
     }
 
     @Override
     public void disposeComponent() {
-        System.out.println("disposeComponent");
-        log.info(TAG, "disposeComponent");
+        log.info("disposeComponent");
     }
 
     @Override

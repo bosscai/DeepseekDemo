@@ -20,13 +20,6 @@ repositories {
     apply(plugin = "org.jetbrains.kotlin.jvm")
     apply(plugin = "org.jetbrains.intellij")
 
-
-//    plugins {
-//        id("")
-//        id("org.jetbrains.kotlin.jvm") version "1.9.24"
-//        id("org.jetbrains.intellij") version "1.17.3"
-//    }
-
     group = "org.example"
     version = "1.0-SNAPSHOT"
 
@@ -43,6 +36,10 @@ repositories {
         implementation("com.squareup.okhttp3:okhttp:3.14.9")
         // https://mvnrepository.com/artifact/com.alibaba.fastjson2/fastjson2
         implementation("com.alibaba.fastjson2:fastjson2:2.0.20")
+        // SLF4J API
+        implementation("org.slf4j:slf4j-api:2.0.7")
+        // Logback 实现
+        implementation("ch.qos.logback:logback-classic:1.4.11")
     }
 
 // Configure Gradle IntelliJ Plugin
